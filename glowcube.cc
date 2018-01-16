@@ -47,24 +47,9 @@ public:
         values_[x][y]=rand()%2;
       }
     }
-    r_ = rand()%255;
-    g_ = rand()%255;
-    b_ = rand()%255;
-
-    if (r_<150 && g_<150 && b_<150) {
-      int c = rand()%3;
-      switch (c) {
-      case 0:
-        r_ = 200;
-        break;
-      case 1:
-        g_ = 200;
-        break;
-      case 2:
-        b_ = 200;
-        break;
-      }
-    }
+    r_ = 238;
+    g_ = 77;
+    b_ = 46;
   }
 
   ~GameLife() {
