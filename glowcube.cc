@@ -6,15 +6,14 @@
 // (but note, that the led-matrix library this depends on is GPL v2)
 
 #include "led-matrix.h"
+#include "threaded-canvas-manipulator.h"
 
 #include <unistd.h>
 #include <math.h>
 #include <stdio.h>
 #include <signal.h>
 
-using rgb_matrix::GPIO;
-using rgb_matrix::RGBMatrix;
-using rgb_matrix::Canvas;
+using namespace rgb_matrix;
 
 volatile bool interrupt_received = false;
 static void InterruptHandler(int signo) {
@@ -201,7 +200,7 @@ int main(int argc, char *argv[]) {
     delete image_gen;
     delete canvas;
 
-    rintf("\%s. Exiting.\n",
+    printf("\%s. Exiting.\n",
          interrupt_received ? "Received CTRL-C" : "Timeout reached");
 
     return 0;

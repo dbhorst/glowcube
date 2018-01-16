@@ -18,7 +18,10 @@ $(RGB_LIBRARY): FORCE
 	$(MAKE) -C $(RGB_LIBDIR)
 
 glowcube : $(OBJECTS) $(RGB_LIBRARY)
-     $(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(OBJECTS) -o $@ $(LDFLAGS)
+
+%.o : %.cc
+	$(CXX) -I$(RGB_INCDIR) $(CXXFLAGS) -c -o $@ $<
 
 clean:
 	rm -f $(OBJECTS) $(BINARIES)
